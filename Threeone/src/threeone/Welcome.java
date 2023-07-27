@@ -58,7 +58,7 @@ public class Welcome extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setBackground(SystemColor.desktop);
-		lblNewLabel.setIcon(new ImageIcon("D:\\new downloads\\Picsart_23-05-26_19-43-41-331.png"));
+		lblNewLabel.setIcon(new ImageIcon("a.png"));
 		lblNewLabel.setBounds(29, -55, 771, 681);
 		contentPane.add(lblNewLabel);
 	}
