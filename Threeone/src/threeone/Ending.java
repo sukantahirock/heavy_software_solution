@@ -69,6 +69,7 @@ public class Ending extends JFrame {
 		JButton btnNewButton = new JButton("Another Check");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
 				Project p=new Project();
 				p.setVisible(true);
 			}
@@ -89,6 +90,7 @@ public class Ending extends JFrame {
 				}
 				else
 				{
+					dispose();
 					Project p=new Project();
 					p.setVisible(true);
 				}
