@@ -58,7 +58,7 @@ public class Project extends JFrame {
 	 * Create the frame.
 	 */
 	public Project() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("D:\\new downloads\\Picsart_23-05-26_20-28-07-280.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("a.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 745, 556);
 		contentPane = new JPanel();
@@ -176,8 +176,8 @@ public class Project extends JFrame {
 				int x=0;
 				 try {
 			            Class.forName("oracle.jdbc.OracleDriver");
-			            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "system", "sukanta");
-			            String q1 = "select * from project where s_name=?";
+			            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "user name", "password");
+			            String q1 = "select * from table where s_name=?";
 			            PreparedStatement stmt = con.prepareStatement(q1);
 			            stmt.setString(1, textField_2.getText());
 			            ResultSet rs = stmt.executeQuery();
@@ -287,8 +287,8 @@ public class Project extends JFrame {
 				{
 					try {
 			            Class.forName("oracle.jdbc.OracleDriver");
-			            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "system", "sukanta");
-			            String q1 = "select * from project2 where s_name=?";
+			            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "username", "password");
+			            String q1 = "select * from table2 where s_name=?";
 			            PreparedStatement stmt = con.prepareStatement(q1);
 			            stmt.setString(1, s_name);
 			            ResultSet rs = stmt.executeQuery();
@@ -339,9 +339,59 @@ public class Project extends JFrame {
 		JButton btnRequirements = new JButton("Requirements");
 		btnRequirements.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				Requirements r=new Requirements();
-				r.setVisible(true);
+				String s_name = textField_2.getText();
+				String OS;
+				String cpu;
+				String ram;
+				String rom;
+				String gpu;
+				if(s_name.isEmpty())
+				{
+					JOptionPane.showMessageDialog(null,"please write down the software name on the first box");
+				}
+				else
+				{
+					try {
+			            Class.forName("oracle.jdbc.OracleDriver");
+			            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "user name", "password");
+			            String q1 = "select * from table where s_name=?";
+			            PreparedStatement stmt = con.prepareStatement(q1);
+			            stmt.setString(1, textField_2.getText());
+			            ResultSet rs = stmt.executeQuery();
+
+			            if (rs.next()) {
+			                System.out.println("Found");
+			                OS=rs.getString("OS");
+			                cpu=rs.getString("CPU"); 
+			                ram=rs.getString("RAM");
+			                rom=rs.getString("ROM");
+			                gpu=rs.getString("GPU");
+			                System.out.println(""+OS+" "+cpu+" "+ram+" "+rom+" "+gpu);
+			                dispose();
+							Requirements r=new Requirements();
+							r.t0.setText(s_name);
+							r.t1.setText(OS);
+							r.t2.setText(cpu);
+							r.t3.setText(ram);
+							r.t4.setText(rom);
+							r.t5.setText(gpu);
+							r.setVisible(true);
+			            }
+			            else
+			            {
+			            	System.out.println("this is not in our data base");
+			            	JOptionPane.showMessageDialog(null,"we are sorry\nThis software information is missing in our database\nwe will soon  update our data base");
+			            	
+			            }
+			            con.close();
+					}
+					catch (Exception ex) {
+			            System.out.println(ex);
+			        }
+					
+					
+				}
+				
 			}
 		});
 		btnRequirements.setFont(new Font("Tahoma", Font.BOLD, 16));
