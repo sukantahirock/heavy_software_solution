@@ -19,12 +19,12 @@ import java.awt.event.ActionEvent;
 public class Requirements extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
+	JTextField t3;
+	JTextField t4;
+	JTextField t5;
+	JTextField t1;
+	JTextField t0;
+	JTextField t2;
 
 	/**
 	 * Launch the application.
@@ -83,10 +83,10 @@ public class Requirements extends JFrame {
 		lblRam.setBounds(154, 212, 167, 32);
 		contentPane.add(lblRam);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(347, 212, 141, 38);
-		contentPane.add(textField);
+		t3 = new JTextField();
+		t3.setColumns(10);
+		t3.setBounds(347, 212, 141, 38);
+		contentPane.add(t3);
 		
 		JLabel lblNewLabel_1 = new JLabel("(in GB)");
 		lblNewLabel_1.setBounds(199, 225, 45, 13);
@@ -99,10 +99,10 @@ public class Requirements extends JFrame {
 		lblRom.setBounds(154, 273, 167, 32);
 		contentPane.add(lblRom);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(347, 273, 141, 38);
-		contentPane.add(textField_1);
+		t4 = new JTextField();
+		t4.setColumns(10);
+		t4.setBounds(347, 273, 141, 38);
+		contentPane.add(t4);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("(in GB)");
 		lblNewLabel_1_1.setBounds(199, 286, 45, 13);
@@ -115,10 +115,10 @@ public class Requirements extends JFrame {
 		lblGpu.setBounds(154, 334, 167, 32);
 		contentPane.add(lblGpu);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(347, 334, 146, 38);
-		contentPane.add(textField_2);
+		t5 = new JTextField();
+		t5.setColumns(10);
+		t5.setBounds(347, 334, 146, 38);
+		contentPane.add(t5);
 		
 		JLabel lblNewLabel_1_2 = new JLabel("(in GB)");
 		lblNewLabel_1_2.setBounds(199, 347, 45, 13);
@@ -128,29 +128,30 @@ public class Requirements extends JFrame {
 		btnAnotherCheck.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
+				dispose();
 				Project p=new Project();
 				p.setVisible(true);
 			
 			}
 		});
 		btnAnotherCheck.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnAnotherCheck.setBounds(154, 396, 151, 47);
+		btnAnotherCheck.setBounds(154, 396, 167, 47);
 		contentPane.add(btnAnotherCheck);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(342, 84, 141, 38);
-		contentPane.add(textField_3);
+		t1 = new JTextField();
+		t1.setColumns(10);
+		t1.setBounds(342, 84, 141, 38);
+		contentPane.add(t1);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(342, 23, 141, 38);
-		contentPane.add(textField_4);
+		t0 = new JTextField();
+		t0.setColumns(10);
+		t0.setBounds(342, 23, 141, 38);
+		contentPane.add(t0);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(342, 145, 146, 38);
-		contentPane.add(textField_5);
+		t2 = new JTextField();
+		t2.setColumns(10);
+		t2.setBounds(342, 145, 146, 38);
+		contentPane.add(t2);
 		
 		JButton btnFinishCheck = new JButton("Finish Check");
 		btnFinishCheck.addActionListener(new ActionListener() {
@@ -164,6 +165,7 @@ public class Requirements extends JFrame {
 				}
 				else
 				{
+					dispose();
 					Project p=new Project();
 					p.setVisible(true);
 				}
@@ -171,7 +173,7 @@ public class Requirements extends JFrame {
 			}
 		});
 		btnFinishCheck.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnFinishCheck.setBounds(352, 396, 141, 47);
+		btnFinishCheck.setBounds(386, 396, 158, 47);
 		contentPane.add(btnFinishCheck);
 	}
 }
